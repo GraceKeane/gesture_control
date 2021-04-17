@@ -32,7 +32,7 @@ while True:
     results = hands.process(imgRGB)
 
     # Detect if theres a hand -> testing
-    print(results.multi_hand_landmarks)
+    #print(results.multi_hand_landmarks)
 
     # If a hand or multi hands detected
     if results.multi_hand_landmarks:
@@ -46,9 +46,9 @@ while True:
                 # Find position of the center of hand (cx & cy)
                 # Landmark of x * width & landmark of y * height
                 cx, cy = int(lm.x*w), int(lm.y*h)
-                print(id, cx, cy)
+                #print(id, cx, cy)
 
-                cv2.circle(img, (cx, cy), 5, (255, 0, 255), cv2.FILLED)
+                cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
 
 
 
