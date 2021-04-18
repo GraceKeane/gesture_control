@@ -22,6 +22,8 @@ pTime = 0
 # Only detect the hand if very certain it is a hand
 detector = tm.handDetector(detectionCon=0.9)
 
+tipIds = [4, 8, 12, 16, 20]
+
 
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(
@@ -83,6 +85,34 @@ while True:
         print(int(length), vol)
         # Send volume to computer
         volume.SetMasterVolumeLevel(vol, None)
+
+        fingers = []
+
+        # Thumb
+        if lmList[tipIds[0]][1] > lmList[tipIds[0] - 1][1]:
+            fingers.append(1)
+        else:
+            fingers.append(0)
+
+
+        # For loop for 4 long fingers
+        for id in range(1, 5):
+            # Look through fingers
+            if lmList[tipIds[id]][2] < lmList[tipIds[id]-2][2]:
+                fingers.append(1)
+            else:
+                fingers.append(0)
+
+        # Print if fingers are up or down
+        # by printing them in an array
+        print(fingers)
+
+        # Find how many fingers are up
+        totalFingers = fingers.count(1)
+        print(totalFingers)
+
+        cv2.putText(img, f'Total Fingers Detected: {str(totalFingers)}', (40, 70), cv2.FONT_HERSHEY_SIMPLEX,
+                    0.5, (0, 0, 0), 1)
 
         if length<50:
             cv2.circle(img, (cx, cy), 15, (255, 0, 0))
