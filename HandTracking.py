@@ -41,6 +41,7 @@ while True:
             for id, lm in enumerate(handLms.landmark):
                 # Test to see id and landmark
                 # Using x and y to find landmark on the hand
+
                 #print(id, lm)
                 h, w, c = img.shape
                 # Find position of the center of hand (cx & cy)
@@ -48,7 +49,7 @@ while True:
                 cx, cy = int(lm.x*w), int(lm.y*h)
                 #print(id, cx, cy)
 
-                cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
+                cv2.circle(img, (cx, cy), 5, (0, 0, 0))
 
 
 
@@ -62,8 +63,9 @@ while True:
     pTime = cTime
 
     # Print frame rate to screen
-    cv2.putText(img, str(int(fps)), (10, 70), cv2.QT_FONT_BLACK, 1,
-                (255, 0, 255), 3)
+
+    #cv2.putText(img, str(int(fps)), (10, 70), cv2.QT_FONT_BLACK, 1,
+    #            (0, 0, 0), 3)
 
     # Run open cv
     cv2.imshow("Gesture Recognition", img)
