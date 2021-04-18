@@ -1,8 +1,12 @@
 import cv2
 import time
 import numpy as np
-# Import module that I created to get hand landmarks/points
+# Import module that I created to detect hand landmarks/points
 import TrackingModule as tm
+import math
+from ctypes import cast, POINTER
+from comtypes import CLSCTX_ALL
+from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
 # Params
 # Width and height of camera
@@ -18,6 +22,23 @@ pTime = 0
 # Only detect the hand if very certain it is a hand
 detector = tm.handDetector(detectionCon=0.9)
 
+
+devices = AudioUtilities.GetSpeakers()
+interface = devices.Activate(
+    IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+volume = cast(interface, POINTER(IAudioEndpointVolume))
+
+volume.GetMute()
+volume.GetMasterVolumeLevel()
+volume.GetVolumeRange()
+volRange = volume.GetVolumeRange()
+volume.SetMasterVolumeLevel(-20.0, None)
+minVol = volRange[0]
+maxVol = volRange[1]
+# Setting initial volume to 0
+vol = 0
+volBar = 400; # Setting vol bar height to 400
+volPercentage = 0;
 
 # Check success
 while True:
@@ -40,26 +61,48 @@ while True:
         cx, cy = (x1 + x2) // 2, (y1 + y2) // 2
 
         # Take in img, position, radius, color, fill
-        cv2.circle(img, (x1, y1), 15, (255, 0, 0), cv2.FILLED)
-        cv2.circle(img, (x2, y2), 15, (255, 0, 0), cv2.FILLED)
+        cv2.circle(img, (x1, y1), 10, (255, 255, 255), cv2.FILLED)
+        cv2.circle(img, (x2, y2), 10, (255, 255, 255), cv2.FILLED)
         # Create a line between the two fingers
-        cv2.line(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
+        cv2.line(img, (x1, y1), (x2, y2), (255, 255, 255), 2)
 
         # Put circle around the middle
-        cv2.circle(img, (cx, cy), 15, (255, 0, 0), cv2.FILLED)
+        cv2.circle(img, (cx, cy), 12, (255, 255, 255), cv2.FILLED)
 
+        length = math.hypot(x2 - x1, y2 - y1)
+        #print(length)
 
+        # Hand range is from 5 to 300
+        # convert to vol range -65 to 0
+        vol = np.interp(length, [50, 300], [minVol, maxVol])
 
+        volBar = np.interp(length, [50, 300], [400, 150])
+        # Assign the percentage the volume is at
+        volPercentage = np.interp(length, [50, 300], [0, 100])
 
+        print(int(length), vol)
+        # Send volume to computer
+        volume.SetMasterVolumeLevel(vol, None)
+
+        if length<50:
+            cv2.circle(img, (cx, cy), 15, (255, 0, 0))
+
+    # Volume rectangle -> visualization
+    cv2.rectangle(img, (50, 150), (85, 400), (0, 0, 0), 2)
+    cv2.rectangle(img, (50, int(volBar)), (85, 400), (0, 0, 0), cv2.FILLED)
+
+    # Print percentage the vol is on
+    cv2.putText(img, f'Vol: {int(volPercentage)}%', (40, 430), cv2.FONT_HERSHEY_SIMPLEX,
+                0.5, (0, 0, 0), 1)
 
     # Current time
     cTime = time.time()
     fps = 1 / (cTime - pTime)
     pTime = cTime
 
-    # Frames per second
-    cv2.putText(img, f'FPS: {int(fps)}', (40, 40), cv2.FONT_HERSHEY_SIMPLEX,
-                1, (255, 0, 0), 3)
+    # Print frames per second
+    cv2.putText(img, f'Frames per sec: {int(fps)}', (40, 40), cv2.FONT_HERSHEY_SIMPLEX,
+                0.5, (0, 0, 0), 1)
 
 
     cv2.imshow("Volume Control", img)
