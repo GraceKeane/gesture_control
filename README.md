@@ -53,7 +53,25 @@ Lecturer | Damien Costello
 
 ## Running the Program
 1. In your command line terminal: ```git clone https://github.com/GraceKeane/gesture_control```<br>
-2. Download PyCharm
+2. Download [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows)(May take a while to download)
+3. Create a new folder and ```git clone https://github.com/GraceKeane/gesture_control.git```
+4. Open [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows)
+5. Click ```File```
+6. Click ```Open```
+7. Navigate to the cloned project and click ```gesture_control```
+8. Navigate to ```VolumeControl.py```, right click, ```Run VolumeControl```
+
+<b>NOTE: You may need to add Python to the interpreter - Steps are defined below</b>
+1. Click ```File```
+2. Click ```Settings```
+3. Click ```Project: gesture_control```
+4. Click ```Python Interpreter``` down arrow
+5. Click ```Show all```
+6. Click ```+```
+7. Program should auto pick up the ```venv``` file
+8. Click ```ok```
+9. Wait for imports to be installed (Should only take a few seconds)
+10. Program should run successfully now
 
 - Add screencasts to explain how to run goes here
 
