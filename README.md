@@ -91,5 +91,8 @@ The purpose of my application is to allow OpenCv to detect and analyse hand gest
 https://docs.opencv.org/3.4/d0/da7/videoio_overview.html <br>
 - MediaPipe, Mediapipe Hands, <br>
     https://google.github.io/mediapipe/solutions/hands.html <br>
-- GitHub, PyCaw Import to get access to computers audio system,
+- GitHub, PyCaw Import to get access to computers audio system, <br>
    https://github.com/AndreMiras/pycaw
+- StackOverflow, Apply .gitignore on an existing repository already <br>
+  tracking large number of files <br>
+https://stackoverflow.com/a/52539775 <br>
