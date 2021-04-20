@@ -65,13 +65,14 @@ Lecturer | Damien Costello
 1. Click ```File```
 2. Click ```Settings```
 3. Click ```Project: gesture_control```
-4. Click ```Python Interpreter``` down arrow
-5. Click ```Show all```
-6. Click ```+```
-7. Program should auto pick up the ```venv``` file
-8. Click ```ok```
-9. Wait for imports to be installed (Should only take a few seconds)
-10. Program should run successfully now
+4. Click ```Interpreter```
+5. Click ```Python Interpreter``` down arrow
+6. Click ```Show all```
+7. Click ```+```
+8. Program should auto pick up the ```venv``` file
+9. Click ```ok```
+10. Wait for imports to be installed (Should only take a few seconds)
+11. Program should run successfully now
 
 - Add screencasts to explain how to run goes here
 
@@ -79,11 +80,13 @@ Lecturer | Damien Costello
 ## Software used
 - [Python 3.8.5](https://www.anaconda.com/products/individual)
 - [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows)
-- [Open CV](https://opencv.org/)
+- [Open CV](https://opencv.org/) 
 
 ## Software imports used
-- [MediaPipe Hands](https://github.com/AndreMiras/pycaw)
+- MediaPipe Hands
 - [PyCaw](https://github.com/AndreMiras/pycaw)
+- PyAutoGUI
+- PyGame
 
 ## Purpose of the application
 The purpose of my application is to allow OpenCv to detect and analyse hand gestures and then use these gestures to control computer functionality.
