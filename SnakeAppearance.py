@@ -20,14 +20,15 @@ cell_width= int(Width_window / size_cell)
 cell_height = int(height_window / size_cell)
 
 # Setting colour for using them in snake game window
-BLACK    = (0, 0, 0)
 BLACK    = (0,     0,   0)
 GREEN    = (0,   255,   0)
 RED      = (255,   0,   0)
 DARKGREEN= (0,   155,   0)
 DARKGRAY = (40,   40,  40)
 YELLOW   = (255, 255,   0)
-BGCOLOR = BLACK
+WHITE    = (255, 255, 255)
+BLUE     = (0, 204, 204)
+BGCOLOR = BLUE
 
 # Control Keys
 UP = 'up'

@@ -11,7 +11,7 @@ from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
 # Params
 # Width and height of camera
-wCam, hCam = 640, 480
+wCam, hCam = 350, 350
 
 # Check if camera is running properly
 cap = cv2.VideoCapture(0)
@@ -24,7 +24,6 @@ pTime = 0
 detector = tm.handDetector(detectionCon=0.9)
 
 tipIds = [4, 8, 12, 16, 20]
-
 
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(
@@ -112,30 +111,16 @@ while True:
         totalFingers = fingers.count(1)
         print(totalFingers)
 
-        cv2.putText(img, f'Total Fingers Detected: {str(totalFingers)}', (40, 70), cv2.FONT_HERSHEY_SIMPLEX,
+        cv2.putText(img, f'Total Fingers Detected: {str(totalFingers)}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
                     0.5, (0, 0, 0), 1)
 
         if length<50:
             cv2.circle(img, (cx, cy), 15, (255, 0, 0))
 
-
-    # Volume rectangle -> visualization
-    cv2.rectangle(img, (50, 150), (85, 400), (0, 0, 0), 2)
-    cv2.rectangle(img, (50, int(volBar)), (85, 400), (0, 0, 0), cv2.FILLED)
-
-    # Print percentage the vol is on
-    cv2.putText(img, f'Vol: {int(volPercentage)}%', (40, 430), cv2.FONT_HERSHEY_SIMPLEX,
-                0.5, (0, 0, 0), 1)
-
     # Current time
     cTime = time.time()
     fps = 1 / (cTime - pTime)
     pTime = cTime
-
-    # Print frames per second
-    cv2.putText(img, f'Frames per sec: {int(fps)}', (40, 40), cv2.FONT_HERSHEY_SIMPLEX,
-                0.5, (0, 0, 0), 1)
-
 
     cv2.imshow("Volume Control", img)
     cv2.waitKey(1)

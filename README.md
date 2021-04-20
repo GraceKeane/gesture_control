@@ -114,12 +114,16 @@ The purpose of my application is to allow OpenCv to detect and analyse hand gest
 - What I would improve?
 
 ## Referances
-- OpenCv, General Information <br>
+- OpenCv, General Information, <br>
 https://docs.opencv.org/3.4/d0/da7/videoio_overview.html <br>
 - MediaPipe, Mediapipe Hands, <br>
     https://google.github.io/mediapipe/solutions/hands.html <br>
 - GitHub, PyCaw Import to get access to computers audio system, <br>
    https://github.com/AndreMiras/pycaw
-- StackOverflow, Apply .gitignore on an existing repository already <br>
+- StackOverflow, Apply .gitignore on an existing repository already, <br>
   tracking large number of files <br>
 https://stackoverflow.com/a/52539775 <br>
+- Zapsplat, Game Music, <br>
+https://www.zapsplat.com/page/3/?s=game+music+&post_type=music&sound-effect-category-id <br>
+- YouTube, How to build SNAKE in python, <br>
+https://www.youtube.com/watch?v=9bBgyOkoBQ0 <br>
