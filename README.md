@@ -41,19 +41,25 @@ Lecturer | Damien Costello
 │   └──  # Image 2
 │   └──  # Image 3
 │   └──  # Image 4
-├── Test_Video 
-│   └──  Frozen-Meeting Olaf Clip (HD).mp4 # Movie clip used for project demo
 ├── Screencasts # Folder containing screencasts of how to set-up, deploy and run project
 │   ├── # Screencast 1 (Running)
 |   └── # Screencast 2 (Demo)
 ├── .gitignore # Text file listing files to ignore
 ├── README.md # Full overview and description of project
+├── FingerTracker.py       ----------+
+├── HandTracker.py                   |
+├── TrackingModule.py                |
+├── VolumeControl.py       --------- +
+├── SnakeAppearance.py     ----------+
+├── SnakeApplication.py              |
+├── SnakeControl.py                  |
+├── SnakeKeys.py           ----------+
 
 ```
 
 ## Running the Program
 1. In your command line terminal: ```git clone https://github.com/GraceKeane/gesture_control```<br>
-2. Download [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows)(May take a while to download)
+2. Download [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows) (May take a while to download)
 3. Create a new folder and ```git clone https://github.com/GraceKeane/gesture_control.git```
 4. Open [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows)
 5. Click ```File```
@@ -74,7 +80,7 @@ Lecturer | Damien Costello
 10. Wait for imports to be installed (Should only take a few seconds)
 11. Program should run successfully now
 
-- Add screencasts to explain how to run goes here
+- Add screencast to explain how to run goes here
 
 
 ## Software used
