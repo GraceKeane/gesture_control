@@ -20,20 +20,6 @@ Author   | Grace Keane
 ID       | G00359990
 Lecturer | Damien Costello
 
-## Contents
-- [Repository Description](#repository-description)
-- [Running the Program](#running-the-program)
-- [Setting up Movie environment](#setting-up-movie-environment)
-- [software used](#software-used)
-- [Software imports used](#software-imports-used)
-- [Purpose of the application](#sha512-overview)
-- [Appropriate gestures](#appropriate-gestures)
-- [Hardware used in creating this application](#hardware-used-in-creating-this-application)
-- [Architecture for the solution](#architecture-for-the-solution)
-- [Testing](#testing)
-- [Conclusion and Recommendations](#conclusion-and-recommendations)
-- [Referances](#referances)
-
 ## Repository Description
 ```bash
 ├── Images # Folders contains images discussed in README.md
@@ -83,47 +69,4 @@ Lecturer | Damien Costello
 - Add screencast to explain how to run goes here
 
 
-## Software used
-- [Python 3.8.5](https://www.anaconda.com/products/individual)
-- [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows)
-- [Open CV](https://opencv.org/) 
-
-## Software imports used
-- MediaPipe Hands
-- [PyCaw](https://github.com/AndreMiras/pycaw)
-- PyAutoGUI
-- PyGame
-
-## Purpose of the application
-The purpose of my application is to allow OpenCv to detect and analyse hand gestures and then use these gestures to control computer functionality.
-
-## Appropriate gestures
-- Images of gestures used here
-
-## Hardware used in creating this application
-- Computer 
-- Computer Camera
-
-## Architecture for the solution
-
-## Testing
-
-## Conclusion and Recommendations
-- What I learned?
-- Final impression of the project?
-- What I would improve?
-
-## Referances
-- OpenCv, General Information, <br>
-https://docs.opencv.org/3.4/d0/da7/videoio_overview.html <br>
-- MediaPipe, Mediapipe Hands, <br>
-    https://google.github.io/mediapipe/solutions/hands.html <br>
-- GitHub, PyCaw Import to get access to computers audio system, <br>
-   https://github.com/AndreMiras/pycaw
-- StackOverflow, Apply .gitignore on an existing repository already, <br>
-  tracking large number of files <br>
-https://stackoverflow.com/a/52539775 <br>
-- Zapsplat, Game Music, <br>
-https://www.zapsplat.com/page/3/?s=game+music+&post_type=music&sound-effect-category-id <br>
-- YouTube, How to build SNAKE in python, <br>
-https://www.youtube.com/watch?v=9bBgyOkoBQ0 <br>
+## Project Output

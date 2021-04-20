@@ -184,7 +184,7 @@ def drawfood(coord):
 	x = coord['x'] * size_cell
 	y = coord['y'] * size_cell
 	appleRect = pygame.Rect(x, y, size_cell, size_cell)
-	pygame.draw.rect(SCREEN, DARKGREEN, appleRect)
+	pygame.draw.rect(SCREEN, YELLOW, appleRect)
 
 if __name__ == '__main__':
 	main()
