@@ -4,6 +4,7 @@ import numpy as np
 # Import module that I created to detect hand landmarks/points
 import TrackingModule as tm
 import math
+# Import to connect this program to computer audio
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
@@ -116,6 +117,7 @@ while True:
 
         if length<50:
             cv2.circle(img, (cx, cy), 15, (255, 0, 0))
+
 
     # Volume rectangle -> visualization
     cv2.rectangle(img, (50, 150), (85, 400), (0, 0, 0), 2)

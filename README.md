@@ -53,7 +53,7 @@ Lecturer | Damien Costello
 
 ## Running the Program
 1. In your command line terminal: ```git clone https://github.com/GraceKeane/gesture_control```<br>
-
+2. Download PyCharm
 
 - Add screencasts to explain how to run goes here
 
@@ -61,25 +61,35 @@ Lecturer | Damien Costello
 ## Software used
 - [Python 3.8.5](https://www.anaconda.com/products/individual)
 - [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows)
-- [Windows Media Player](https://en.softonic.com/downloads/windows-media-player-for-windows-10?utm_source=SEM&utm_medium=paid&utm_campaign=EN_AU_DSA_Downloads&gclid=CjwKCAjwvMqDBhB8EiwA2iSmPPnNLXi2suMdKo2Q-lxLarCQxHqjjRmUMZxXfTrIdIB-IJVqoGvUXRoCjlIQAvD_BwE)
 - [Open CV](https://opencv.org/)
 
 ## Software imports used
+- [MediaPipe Hands](https://github.com/AndreMiras/pycaw)
+- [PyCaw](https://github.com/AndreMiras/pycaw)
 
 ## Purpose of the application
+The purpose of my application is to allow OpenCv to detect and analyse hand gestures and then use these gestures to control computer functionality.
 
-## Appropriate gestures 
-
+## Appropriate gestures
 - Images of gestures used here
 
 ## Hardware used in creating this application
+- Computer 
+- Computer Camera
 
 ## Architecture for the solution
 
 ## Testing
 
 ## Conclusion and Recommendations
+- What I learned?
+- Final impression of the project?
+- What I would improve?
 
 ## Referances
 - OpenCv, General Information <br>
-https://docs.opencv.org/3.4/d0/da7/videoio_overview.html
+https://docs.opencv.org/3.4/d0/da7/videoio_overview.html <br>
+- MediaPipe, Mediapipe Hands, <br>
+    https://google.github.io/mediapipe/solutions/hands.html <br>
+- GitHub, PyCaw Import to get access to computers audio system,
+   https://github.com/AndreMiras/pycaw
