@@ -1,14 +1,13 @@
-# Gesture UI Development
-# Grace Keane - G00359990
-# Using Open Cv to control computer features
+"""
+    @author Grace Keane
 
-# Tracks a certain landmark e.g. check coordinate of thumb tip
-#--- Imports
+    Class that maps a landmark to a specific area on the hand.
+    Used for Hand Gesture Sound Control.
+"""
+
 import cv2
 import mediapipe as mp
 import time
-
-import self as self
 
 # Visualisation
 class handDetector():
@@ -43,7 +42,7 @@ class handDetector():
                                                 self.mpHands.HAND_CONNECTIONS)
         return img
 
-    # Finding postion of landmarks
+    # Finding position of landmarks
     def findPosition(self, img, handNo=0, draw=True):
         # Creating the landmark list to return
         lmList = []
@@ -53,15 +52,11 @@ class handDetector():
             myHand = self.results.multi_hand_landmarks[handNo]
             # Get all landmarks in that hand and put in a list
             for id, lm in enumerate(myHand.landmark):
-                # Test to see id and landmark
                 # Using x and y to find landmark on the hand
-                # print(id, lm)
                 h, w, c = img.shape
                 # Find position of the center of hand (cx & cy)
                 # Landmark of x * width & landmark of y * height
                 cx, cy = int(lm.x * w), int(lm.y * h)
-                # Print landmarks
-                #print(id, cx, cy)
                 lmList.append([id, cx, cy])
 
                 # By default draw is true

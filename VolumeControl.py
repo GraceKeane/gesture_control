@@ -1,3 +1,12 @@
+"""
+    @author Grace Keane
+
+    Class that carries out the defines gesture features and maps
+    the gesture with the change volume action using PyCaw
+    functions.
+    Used for Hand Gesture Sound Control.
+"""
+
 import cv2
 import time
 import numpy as np
@@ -9,7 +18,6 @@ from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
-# Params
 # Width and height of camera
 wCam, hCam = 350, 350
 
@@ -25,22 +33,25 @@ detector = tm.handDetector(detectionCon=0.9)
 
 tipIds = [4, 8, 12, 16, 20]
 
+"""
+    Imported from PyCaw documentation -> https://github.com/AndreMiras/pycaw
+    These 9 lines of code allow my program to access the computers sound system
+    and allows my gestures to control the sound system.
+"""
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(
     IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
 volume = cast(interface, POINTER(IAudioEndpointVolume))
-
 volume.GetMute()
 volume.GetMasterVolumeLevel()
 volume.GetVolumeRange()
 volRange = volume.GetVolumeRange()
 volume.SetMasterVolumeLevel(-20.0, None)
+
 minVol = volRange[0]
 maxVol = volRange[1]
 # Setting initial volume to 0
 vol = 0
-volBar = 400; # Setting vol bar height to 400
-volPercentage = 0;
 
 # Check success
 while True:
@@ -72,15 +83,10 @@ while True:
         cv2.circle(img, (cx, cy), 12, (255, 255, 255), cv2.FILLED)
 
         length = math.hypot(x2 - x1, y2 - y1)
-        #print(length)
 
         # Hand range is from 5 to 300
         # convert to vol range -65 to 0
         vol = np.interp(length, [50, 300], [minVol, maxVol])
-
-        volBar = np.interp(length, [50, 300], [400, 150])
-        # Assign the percentage the volume is at
-        volPercentage = np.interp(length, [50, 300], [0, 100])
 
         print(int(length), vol)
         # Send volume to computer
@@ -93,7 +99,6 @@ while True:
             fingers.append(1)
         else:
             fingers.append(0)
-
 
         # For loop for 4 long fingers
         for id in range(1, 5):

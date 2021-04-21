@@ -1,11 +1,15 @@
+"""
+    @author Grace Keane
+
+    Class that imports the TrackingModule.py class and defines
+    the basics for gesture detections.
+    Used for Hand Gesture Sound Control.
+"""
 import cv2
-import mediapipe as mp
 import time
 import TrackingModule as tm
 
 # Processed single fingers and added to list
-
-
 # Previous time
 pTime = 0
 cTime = 0

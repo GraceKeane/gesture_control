@@ -1,5 +1,9 @@
+"""
+    @author Grace Keane
+
+    Class that specifies all the styling of the Snake game.
+"""
 import pygame
-from pygame.locals import *
 # Handles sound
 from pygame import mixer
 
@@ -39,8 +43,8 @@ RIGHT = 'right'
 # Setting the initial start up point for the head
 HEAD = 0
 
-# Going to connect snake game to my gesture control feature at end
-# Background sound
+# Connect snake game to my gesture that controls the sound
+# Background music
 mixer.music.load('./GameSound/snake_sound.mp3')
 # Play music in a loop
 mixer.music.play(-1) # -1 -> Play on loop

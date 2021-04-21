@@ -1,12 +1,12 @@
 """
     @author Grace Keane
 
-    SnakeApplication -
+    SnakeApplication - class that created the actual snake game and functionality.
 """
 
 import random
 import sys
-
+from pygame.locals import *
 # Need to import the snake appearance class for colors, sizing ect.
 from SnakeAppearance import *
 
@@ -67,7 +67,6 @@ def runGame():
 			food = getRandomLocation()
 		else:
 			del worm[-1]
-
 
 		# Move the Snake
 		if direction == UP:

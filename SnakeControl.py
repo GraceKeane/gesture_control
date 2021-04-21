@@ -15,31 +15,38 @@
 import numpy as np
 # Used for Capturing real time video and image processing
 import cv2
-# Lets Python scripts control the mouse and keyboard to automate
+# Lets Python control the mouse and keyboard to automate
 # interactions with other applications.
 import pyautogui
 # Import the SnakeKeys.py class -> Needed for snake key actions
 from SnakeKeys import up, left, down, right
 from SnakeKeys import PressKey, ReleaseKey
 
-# Write the range of lower and upper boundaries of the "blue" object after converting it to hsv region
-# Colors set in HSV format -> Required for Open Cv
+"""
+    Write the range of lower and upper boundaries of the "blue" object
+    after converting it to hsv region colors set in HSV format -> Required 
+    for Open Cv.
+"""
 blueLower = np.array([50, 50, 50])
 blueUpper = np.array([180, 180, 155])
 # Declare a variable to capture the real time video of our webcam
 video = cv2.VideoCapture(0);
 
-# Set the initial values for parameter to use them later in the code
-# Set -> serves as a type-ahead buffer for keystrokes
+"""
+    Set the initial values for parameter to use them later in the code
+    Set -> serves as a type-ahead buffer for keystrokes.
+"""
 current_key = set()
 # Set radius of circle for covering the object
 radius_of_circle = 15
 # Set window size of grabbed frame
 window_size = 160
 
-# Loop until OpenCV window is not closed and
-# allow frame to continuously capture
-# image
+"""
+    Loop until OpenCV window is not closed and
+    allow frame to continuously capture
+    image.
+"""
 while True:
     keyPressed = False
     keyPressed_lr = False
@@ -55,40 +62,50 @@ while True:
                         double 	sigmaY = 0,
                         int 	borderType = BORDER_DEFAULT)	'''
 
-    # Convert to HSV color scale (hue, saturation, value)
-    # Resize and blur the image to get a smoother image
-    # Blurred using a feature in OpenCv -> Gaussian
-    # After blurring -> Convert blur into HSV scale
+    """
+        1. Convert to HSV color scale (hue, saturation, value),
+        2. Resize and blur the image to get a smoother image.
+        3. Blurred using a feature in OpenCv -> Gaussian,
+        4. After blurring -> Convert blur into HSV scale.
+    """
     control_frame = cv2.resize(control_frame, dsize=(600, height))
     blur_frame = cv2.GaussianBlur(control_frame, (11, 11), 0)
     hsv_value = cv2.cvtColor(blur_frame, cv2.COLOR_BGR2HSV)
 
-    # Create a cover for object so that it is able to detect the object easily without any
-    # distraction by other details of image
+    """
+        Create a cover for object so that it is able to detect the object easily without any
+        distraction by other details of image.
+    """
     cover = cv2.inRange(hsv_value, blueLower, blueUpper)
 
-    # Applying erosion and dilation to the image so
-    # program picks up the blue object(pen) better
-    # Erode the masked output
+    """
+        Applying erosion and dilation to the image so the
+        program picks up the blue object (pen) better
+        Erode the masked output.
+    """
     cover = cv2.erode(cover, None, iterations=2)
     # Dilate the resultant image
     cover = cv2.dilate(cover, None, iterations=2)
 
-    # Divide the frame into two halves one for up and down keys
-    # and other half is for left and right keys by using indexing
+    """
+        Divide the frame into two halves one for up and down keys
+        and other half is for left and right keys by using indexing.
+    """
     left_cover = cover[:, 0:width // 2, ]
     right_cover = cover[:, width // 2:, ]
 
-    # Using contours for detecting the blue object
-    # in the image. A contour is essentially a curve
-    # joining all points along the boundary.
+    """
+        Using contours for detecting the blue object in the image.
+        A contour is essentially a curve joining all points along the boundary.
+        Using two contours for the detection.
+            1. Left side of screen
+            2. Right side of screen
+    """
 
-    # Using two contours for this..
-    # 1. Left side of screen
-    # 2. Right side of screen
-
-    # Open CV Function to extract the contours
-    # from the left and right side
+    """
+        Open CV Function to extract the contours
+        from the left and right side.
+    """
     def extract_contour(contours):
         if len(contours) == 2:
             contours = contours[0]
@@ -115,8 +132,10 @@ while True:
     contour_r = extract_contour(contour_r)
     right_centre = None
 
-    # If a point is detected, it is found using contourArea
-    # and centroid using moments
+    """
+        If a point is detected, it is found using contourArea
+        and centroid using moments.
+    """
     if len(contour_l) > 0:
         # For creating a circular contour with centroid
         c = max(contour_l, key=cv2.contourArea)
@@ -125,19 +144,23 @@ while True:
         # Formula for calculating centroid of circle
         left_centre = (int(M["m10"] / (M["m00"] + 0.000001)), int(M["m01"] / (M["m00"] + 0.000001)))
 
-        # If the radius of the contour is more than the specified
-        # value -> draw circle around it
+        """
+            If the radius of the contour is more than the specified
+            value -> draw circle around it.
+        """
         if r > radius_of_circle:
             # Draw the circle and centroid on the frame,
             cv2.circle(control_frame, (int(x), int(y)), int(r),
                        (0, 255, 0), 2)
             cv2.circle(control_frame, left_centre, 5, (0, 255, 0), -1)
 
-            # Setting gesture controls for keys
-            # Defining positions where left and right key will be detected
-            # Setting left, up, down and right arrow keys using PyAutoGUI
-            # When detect something -> results are sent to application method
-            # in SnakeApplication
+            """
+                Setting gesture controls for keys,
+                Defining positions where left and right key will be detected,
+                Setting left, up, down and right arrow keys using PyAutoGUI,
+                When detect something -> results are sent to application method
+                in SnakeApplication.
+            """
             if left_centre[1] < (height / 2 - window_size // 2):
                 cv2.putText(control_frame, 'LEFT', (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
                 # pyautogui is for clicking left key through gesture
@@ -183,8 +206,10 @@ while True:
                                        (width, height // 2 + window_size // 2), (255, 0, 0), 2)
     cv2.imshow("Snake Controls", control_frame)
 
-    # Fix error -> need to empty buffer
-    # Method is linked to ReleaseKey in SnakeKeys.py
+    """
+        Fixed error -> need to empty buffer
+        Method is linked to ReleaseKey in SnakeKeys.py.
+    """
     if not keyPressed and current_key != 0:
         for key in current_key:
             ReleaseKey(key)
