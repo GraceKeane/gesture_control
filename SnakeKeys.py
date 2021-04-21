@@ -7,6 +7,7 @@
 # Necessary Imports
 # Provides C compatible data types, and allows calling functions
 import ctypes
+import time
 
 SendInput = ctypes.windll.user32.SendInput
 
@@ -41,6 +42,7 @@ class Input(ctypes.Structure):
     _fields_ = [("type", ctypes.c_ulong),
                 ("input", input_1)]
 
+
 def PressKey(hexKeyCode):
     extra = ctypes.c_ulong(0)
     input_ = input_1()
@@ -58,4 +60,6 @@ def ReleaseKey(hexKeyCode):
 # Calling and setting functions
 if __name__ == '__main__':
     PressKey(0x26)
+    time.sleep(1)
     ReleaseKey(0x26)
+    time.sleep(1)

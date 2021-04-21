@@ -97,11 +97,11 @@ while True:
 
     # Looping if at least one contour or centre is found in left side of frame
     if len(contour_l) > 0:
-        # for creating a circular contour with centroid
+        # For creating a circular contour with centroid
         c = max(contour_l, key=cv2.contourArea)
         ((x, y), r) = cv2.minEnclosingCircle(c)
         M = cv2.moments(c)
-        # below is formula for calculating centroid of circle
+        # Formula for calculating centroid of circle
         left_centre = (int(M["m10"] / (M["m00"] + 0.000001)), int(M["m01"] / (M["m00"] + 0.000001)))
 
         # If the radius meets a minimum size to avoid small distraction of same color then mark it in frame
@@ -157,6 +157,17 @@ while True:
                                        (width, height // 2 + window_size // 2), (255, 0, 0), 2)
     cv2.imshow("Snake Controls", control_frame)
 
+    # Fix error
+    if not keyPressed and current_key != 0:
+        for key in current_key:
+            ReleaseKey(key)
+            current_key = set()
+
+    k = cv2.waitKey(1) & 0xFF
+
+    # Stop loop
+    if k == ord("q"):
+        break
 
 # Stop game
 video.stop()
