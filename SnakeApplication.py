@@ -1,3 +1,9 @@
+"""
+    @author Grace Keane
+
+    SnakeApplication -
+"""
+
 import random
 import sys
 
