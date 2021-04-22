@@ -32,10 +32,8 @@ Lecturer | Damien Costello
 |   └── # Screencast 2 (Demo)
 ├── .gitignore # Text file listing files to ignore
 ├── README.md # Full overview and description of project
-├── FingerTracker.py       ----------+
-├── HandTracker.py                   |
-├── TrackingModule.py                |
-├── VolumeControl.py       --------- +
+├── TrackingModule.py                
+├── VolumeControl.py     
 ├── SnakeAppearance.py     ----------+
 ├── SnakeApplication.py              |
 ├── SnakeControl.py                  |
