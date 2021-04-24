@@ -57,6 +57,8 @@ Lecturer | Damien Costello
 6. Click ```Open```
 7. Navigate to the cloned project and click ```gesture_control```
 8. Navigate to ```VolumeControl.py```, right click, ```Run VolumeControl```
+9. Navigate to ```SnakeApplication.py```, right click, ```Run SnakeApplication```
+10. Navigate to ```SnakeControl.py```, right click, ```Run SnakeControl```
 
 <b>NOTE: You may need to add Python to the interpreter - Steps are defined below</b>
 1. Click ```File```
