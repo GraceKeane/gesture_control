@@ -32,8 +32,8 @@ Lecturer | Damien Costello
 |   └── # Screencast 2 (Demo)
 ├── .gitignore # Text file listing files to ignore
 ├── README.md # Full overview and description of project
-├── TrackingModule.py                
-├── VolumeControl.py     
+├── TrackingModule.py      ----------+               
+├── VolumeControl.py       ----------+
 ├── SnakeAppearance.py     ----------+
 ├── SnakeApplication.py              |
 ├── SnakeControl.py                  |
@@ -41,10 +41,17 @@ Lecturer | Damien Costello
 
 ```
 
+<b>TrackingModule.py - </b> Code to detect hand and finger landmarks<br>
+<b>VolumeControl.py - </b> Specifies volume control gestures and connects to computers audio system <i>(Run this file to control audio using gestures)</i> <br>
+<b>SnakeAppearance.py - </b> Defines reusable snake game styling <br>
+<b>SnakeApplication.py - </b> Code that creates the actual snake game itself (Run this class by itself to play game with keyboard or with SnakeControl.py to play using gestures)<br>
+ <b>SnakeControl.py - </b> Specifies gestures for the snake game application (run along with SnakeApplication.py) <br>
+ <b>SnakeKeys.py</b> - Defines key functionality <br>
+
 ## Running the Program
 1. In your command line terminal: ```git clone https://github.com/GraceKeane/gesture_control```<br>
 2. Download [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows) (May take a while to download)
-3. Create a new folder and ```git clone https://github.com/GraceKeane/gesture_control.git```
+3. ```git clone https://github.com/GraceKeane/gesture_control.git```
 4. Open [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows)
 5. Click ```File```
 6. Click ```Open```
@@ -62,9 +69,6 @@ Lecturer | Damien Costello
 8. Program should auto pick up the ```venv``` file
 9. Click ```ok```
 10. Wait for imports to be installed (Should only take a few seconds)
-11. Program should run successfully now
+11. Program should run successfully now if not hover over red lines and import all
 
-- Add screencast to explain how to run goes here
-
-
-## Project Output
+<i><b>Screencast of how to clone and run as well as a program demo is included in submission<b></i>
