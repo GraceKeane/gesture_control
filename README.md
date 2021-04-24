@@ -3,7 +3,7 @@
 </h3>
 
 <h3 align="center">
-    A program written in Python to control computer functionality using hand gestures
+    A program written in Python to control computer and game functionality using hand gestures
 </h4>
 
 <p align="center">
