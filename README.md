@@ -25,7 +25,7 @@ Lecturer | Damien Costello
   <img src="./Images/Snake.PNG" width=700 height=300/>
 </p>
 
-## Snake Game Volume Control
+## Snake Gesture Volume Control
 
 <p align="center">
   <img src="./Images/Low.PNG" width=600 height=300/>
