@@ -20,6 +20,20 @@ Author   | Grace Keane
 ID       | G00359990
 Lecturer | Damien Costello
 
+## Snake Gesture Control
+<p align="center">
+  <img src="./Images/Snake.PNG" width=700 height=300/>
+</p>
+
+## Snake Game Volume Control
+
+<p align="center">
+  <img src="./Images/Low.PNG" width=600 height=300/>
+</p>
+<p align="center">
+  <img src="./Images/Volume.PNG" width=600 height=300/>
+</p>
+
 ## Repository Description
 ```bash
 ├── Images # Folders contains images discussed in README.md
@@ -72,5 +86,3 @@ Lecturer | Damien Costello
 9. Click ```ok```
 10. Wait for imports to be installed (Should only take a few seconds)
 11. Program should run successfully now if not hover over red lines and import all
-
-<i><b>Screencast of how to clone and run as well as a program demo is included in submission<b></i>
